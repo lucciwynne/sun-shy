@@ -1,0 +1,26 @@
+{
+  "name": "solario-app",
+  "version": "1.0.0",
+  "description": "Solario suncare app",
+  "main": "index.js",
+  "scripts": {
+    "dev:webpack": "webpack --mode development",
+    "build:webpack": "webpack --mode production",
+    "start:webpack": "webpack-dev-server --mode development --open"
+  },
+  "author": "Lucci",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "suncalc": "^1.8.0"
+  }
+}
