@@ -10,5 +10,13 @@ export const getSunAlt = (lat, long) => {
 };
 
 export const displaySunAlt = (altitude) => {
-    console.log(`The sun is ${altitude} degrees above the horizon`);
+
+    if (altitude < 0) {
+        console.log(`The sun is below the horizon, you have nothing to worry about!`);
+    } else if (0 < altitude < 50) {
+        console.log(`The sun is only ${altitude} degrees above the horizon. Protect yourself!`);
+    } else if (altitude > 50) {
+        console.log(`The sun is ${altitude} degrees above the horizon. Go out and get a bit of vitamin D!`);
+    }
+    
 };
