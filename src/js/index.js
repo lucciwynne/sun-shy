@@ -1,16 +1,23 @@
-import { getSunAlt } from './SunAlt';
+import { getSunAlt, displaySunAlt } from './SunAlt';
 
 const user = {};
 
-const setPosition = () => {
+async function setPosition() {
     if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            user.lat = position.coords.latitude;
-            user.long = position.coords.longitude;
-
-            user.sunAlt = getSunAlt(user.lat, user.long);
-            console.log(user.sunAlt);
+        const pos = await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition((position) => {
+              resolve(position);
+            });
         });
+        //console.log(pos);
+
+        user.lat = pos.coords.latitude;
+        user.long = pos.coords.longitude;
+        
+        user.sunAlt = getSunAlt(user.lat, user.long);
+        displaySunAlt(user.sunAlt);
+        
+        //console.log(user);
     }
 };
 setPosition();

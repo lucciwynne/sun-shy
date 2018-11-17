@@ -8,3 +8,7 @@ export const getSunAlt = (lat, long) => {
 
     return sunAlt;
 };
+
+export const displaySunAlt = (altitude) => {
+    console.log(`The sun is ${altitude} degrees above the horizon`);
+};
