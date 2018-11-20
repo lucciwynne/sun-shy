@@ -1,8 +1,11 @@
-import { getSunAlt, displaySunAlt } from './SunAlt';
-
-const user = {};
+import { getSunAlt } from './models/SunAlt';
+import { getTime } from './models/Time';
+import { displaySunAlt, clearResults } from './views/sunAltView';
+import { elements } from './views/base';
 
 async function setPosition() {
+    const user = {};
+    
     if ('geolocation' in navigator) {
         const pos = await new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition((position) => {
@@ -11,13 +14,22 @@ async function setPosition() {
         });
         //console.log(pos);
 
-        user.lat = pos.coords.latitude;
-        user.long = pos.coords.longitude;
+        setCoords(user, pos);
         
         user.sunAlt = getSunAlt(user.lat, user.long);
-        displaySunAlt(user.sunAlt);
         
+        //clearResults();
+        getTime();
+        displaySunAlt(user.sunAlt);
+
         //console.log(user);
     }
 };
-setPosition();
+
+function setCoords(obj, position) {
+    obj.lat = position.coords.latitude;
+    obj.long = position.coords.longitude;
+}
+
+elements.btn.addEventListener('click', setPosition);
+

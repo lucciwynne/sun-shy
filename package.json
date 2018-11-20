@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "moment": "^2.22.2",
     "suncalc": "^1.8.0"
   }
 }
