@@ -1,8 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const extractPlugin = new MiniCssExtractPlugin({
+    filename: 'css/style.css'
+});
 
 module.exports = {
-    entry: ['@babel/polyfill', './src/js/index.js'],
+    entry: ['@babel/polyfill', './src/js/app.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
@@ -14,7 +19,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html'
-        })
+        }),
+        extractPlugin
     ],
     module: {
         rules: [
@@ -24,6 +30,15 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                },
+                'css-loader',
+                'sass-loader'
+                ]
             }
         ]
     }
