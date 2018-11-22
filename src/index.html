@@ -7,14 +7,59 @@
 
     <title>Solario</title>
 
-    
-
 </head>
 <body>
-    <h1 class="heading-1">Solario App</h1>
     
-    <p class="test"></p>
-    <button>Get Altitude</button>
+    <header class="header">
+        <h1 class="heading-1">Solario</h1>
 
+        <button class="sun-btn">
+            <span class="sun-btn__text">Tap</span>
+
+            <ul class="sun-btn__sun">
+                <li class="sun-btn__ray"></li>
+                <li class="sun-btn__ray"></li>
+                <li class="sun-btn__ray"></li>
+                <li class="sun-btn__ray"></li>
+                <li class="sun-btn__ray"></li>
+                <li class="sun-btn__ray"></li>
+                <li class="sun-btn__ray"></li>
+                <li class="sun-btn__ray"></li>
+            </ul>
+        </button>
+    </header>
+
+    <section class="data">
+
+        <div class="data__card" id="results">
+            <h4 class="heading-4" id="date">Sat, November 17 15:00</h4>
+            <p class="data__card--result">
+                The sun is only 
+                <span class="data__card--altitude">39 degrees</span>
+                above the horizon.
+            </p>
+            <p class="data__card--advice">
+                Protect yourself with sunscreen and clothing!
+            </p>
+        </div>
+
+        <div class="data__card" id="forecast">
+            <p class="data__card--forecast-text">
+                Today the sun will not rise to 50 degrees above the horizon.
+            </p>
+        </div>
+
+        <div class="data__card" id="facts">
+            <h4 class="heading-4">Did you know?</h4>
+            <p class="data__card--fact">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum iusto cumque officia voluptate suscipit, soluta repellendus consequatur veniam!
+            </p>
+        </div>
+
+    </section>
+    
+    <footer class="footer">
+        Powered by <a href="https://github.com/mourner/suncalc">SunCalc</a> + <a href="http://momentjs.com/">Moment.js</a>
+    </footer>
 </body>
 </html>

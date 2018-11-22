@@ -1,8 +1,18 @@
-// Color Variables
+// Imports
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+// Color Variables
+$color-primary: #fe7f77;
+$color-secondary: #ffd893;
+$color-tertiary: #f5b889;
+
+$color-sunshine: rgba(255, 255, 255, 0.5);
+$color-shadow: rgba(0, 0, 0, .1);
+
+$bg-color: linear-gradient(#fe7f77, #ffd893);
 
 // Font Variables
-
+$font-primary: 'Open Sans', sans-serif;
 
 // Responsive Breakpoints
 
@@ -22,7 +32,11 @@ html {
 }
 
 body {
-    color: #fff;
-    background-color: pink;
+    background: $bg-color no-repeat;
+    font-family: $font-primary;
+}
+
+html, body {
+    min-height: 100%; // full page
 }
 
