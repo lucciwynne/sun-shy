@@ -1,0 +1,46 @@
+.data {
+    margin: 0 auto;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto, min-content);
+    grid-gap: 1.5rem;
+    justify-items: center;
+
+    &__card {
+        width: 90%;
+        max-width: 50rem;
+        padding: 1.5rem;
+        background: #fff;
+        color: $color-gray;
+        font-size: 1.6rem;
+        text-align: center;
+        box-shadow: 0 5px 15px $color-shadow;
+        transform: perspective(600px) rotateX(0deg);
+
+        &--altitude {
+            display: block;
+            color: $color-primary;
+            font-weight: 300;
+            font-size: 4rem;
+        }
+
+        &--forecast-text {
+            color: $color-primary;
+            font-weight: 300;
+            font-style: italic;
+        }
+    }
+
+    #results {
+        transition: transform .75s linear;
+    }
+
+    #forecast {
+        transition: transform .75s linear .25s;
+    }
+
+    #facts {
+        transition: transform .75s linear .5s;
+    }
+}

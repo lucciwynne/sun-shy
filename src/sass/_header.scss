@@ -1,0 +1,107 @@
+// Sun Animation
+@keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    
+    50% {
+      transform: rotate(180deg);
+    }
+    
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+
+.header {
+    padding-top: 2.5rem;
+
+    display: grid;
+    justify-items: center;
+    grid-template-rows: min-content;
+
+    .sun-btn {
+        margin: 4rem 0 4rem 0;
+        background: none;
+        border: none;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        -webkit-tap-highlight-color: transparent;
+        cursor: pointer;
+
+        &:focus {
+            outline: 0;
+        }
+
+        &:active {
+            background: $color-tertiary;
+        }
+
+        &__text {
+            position: absolute;
+            z-index: 1;
+            transform: translate(-50%, 175%);
+            font-weight: bold;
+        }
+
+        &__sun {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            background: $color-secondary;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px $color-sunshine;
+            animation: rotation 15s linear infinite;
+        }
+
+        &__ray {
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            list-style: none;
+            background: $color-secondary;
+            box-shadow: 0 0 15px $color-sunshine;
+
+            &:nth-child(1) {
+                transform: translate(150%, -500%) rotate(90deg);
+            }
+              
+            &:nth-child(2) {
+                transform: translate(350%, -20%) rotate(-45deg);
+            }
+              
+            &:nth-child(3) {
+                transform: translate(420%, 1350%) rotate(180deg);
+            }
+              
+            &:nth-child(4) {
+                transform: translate(340%, 2600%) rotate(45deg);
+            }
+              
+            &:nth-child(5) {
+                transform: translate(150%, 3100%) rotate(90deg);
+            }
+              
+            &:nth-child(6) {
+                transform: translate(-40%, 2600%) rotate(-45deg);
+            }
+              
+            &:nth-child(7) {
+                transform: translate(-120%, 1350%) rotate(180deg);
+            }
+              
+            &:nth-child(8) {
+                transform: translate(-50%, 20%) rotate(45deg);
+            }
+        }
+    }
+
+    .sun-btn:active .sun-btn__sun,
+    .sun-btn:active .sun-btn__ray {
+        background: $color-tertiary;
+    }
+}

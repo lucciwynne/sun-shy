@@ -18,4 +18,4 @@ export const displaySunAlt = (altitude) => {
 
 export function clearResults() {
     elements.text.innerHTML = '';
-};
+}

@@ -24,7 +24,7 @@ async function setPosition() {
         
         //clearResults();
         getTime();
-        displaySunAlt(user.sunAlt);
+        //displaySunAlt(user.sunAlt);
 
         //console.log(user);
     }
@@ -36,4 +36,16 @@ function setCoords(obj, position) {
 }
 
 elements.btn.addEventListener('click', setPosition);
+
+//
+let rotation = 0;
+elements.btn.addEventListener('click', () => {
+    rotation -= 720;
+    const cards = document.querySelectorAll('.data__card');
+    
+    cards.forEach(card => {
+        card.style.transform = `perspective(600px) rotateX(${rotation}deg)`;
+        console.log(rotation);
+    });
+});
 
