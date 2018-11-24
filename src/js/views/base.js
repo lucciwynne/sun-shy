@@ -5,5 +5,7 @@ export const elements = {
     card: document.querySelector('.data__card'),
     resultsCard: document.querySelector('#results'),
     date: document.querySelector('#date'),
+    results: document.querySelector('.data__card--result'),
+    advice: document.querySelector('.data__card--advice'),
     altitude: document.querySelector('.data__card--altitude')
 }

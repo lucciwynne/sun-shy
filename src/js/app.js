@@ -33,8 +33,8 @@ async function init() {
 
 // Set user's latitude and longitude
 function setCoords(obj, position) {
-    obj.lat = position.coords.latitude;
-    obj.long = position.coords.longitude;
+    obj.lat = 57; //position.coords.latitude;
+    obj.long = 4; //position.coords.longitude;
 }
 
 // Counts button clicks to determine refresh method
