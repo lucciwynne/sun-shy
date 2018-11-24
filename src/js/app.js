@@ -3,11 +3,12 @@ import '../sass/main.scss';
 
 // JS imports
 import { getSunAlt } from './models/SunAlt';
-import { getTime } from './models/Time';
-import { displaySunAlt, clearResults } from './views/sunAltView';
+import { renderResultsCard, displaySunAlt, clearResults } from './views/sunAltView';
+import { displayDate } from './views/timeView';
 import { elements } from './views/base';
+import { getTime } from './models/Time';
 
-async function setPosition() {
+async function init() {
     const user = {};
     
     if ('geolocation' in navigator) {
@@ -16,36 +17,44 @@ async function setPosition() {
               resolve(position);
             });
         });
-        //console.log(pos);
 
-        setCoords(user, pos);
+        setCoords(user, pos); 
         
         user.sunAlt = getSunAlt(user.lat, user.long);
-        
-        //clearResults();
-        getTime();
-        //displaySunAlt(user.sunAlt);
 
-        //console.log(user);
+        
+        displayDate(user);
+        displaySunAlt(user.sunAlt);
+        elements.resultsCard.style.display = 'block';
+        flipCards();
+        
     }
 };
 
+// Set user's latitude and longitude
 function setCoords(obj, position) {
     obj.lat = position.coords.latitude;
     obj.long = position.coords.longitude;
 }
 
-elements.btn.addEventListener('click', setPosition);
+// Counts button clicks to determine refresh method
+let clicks = 0; 
+function countClicks() {
+    clicks += 1
+    console.log(clicks);
+    return clicks;
+}
 
-//
+// Flip results cards to refresh on button click
 let rotation = 0;
-elements.btn.addEventListener('click', () => {
+function flipCards() {
     rotation -= 720;
     const cards = document.querySelectorAll('.data__card');
     
     cards.forEach(card => {
         card.style.transform = `perspective(600px) rotateX(${rotation}deg)`;
-        console.log(rotation);
     });
-});
+}
 
+elements.btn.addEventListener('click', countClicks);
+elements.btn.addEventListener('click', init);

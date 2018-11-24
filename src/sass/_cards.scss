@@ -18,6 +18,10 @@
         box-shadow: 0 5px 15px $color-shadow;
         transform: perspective(600px) rotateX(0deg);
 
+        &--result {
+            padding-bottom: 1.5rem;
+        }
+
         &--altitude {
             display: block;
             color: $color-primary;
@@ -33,14 +37,17 @@
     }
 
     #results {
+        display: none;
         transition: transform .75s linear;
     }
 
     #forecast {
+        display: none;
         transition: transform .75s linear .25s;
     }
 
     #facts {
+        display: none;
         transition: transform .75s linear .5s;
     }
 }

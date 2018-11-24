@@ -1,7 +1,8 @@
 const moment = require('moment');
 
-export const getTime = () => {
+export const getTime = (obj) => {
     const today = new Date();
     const result = moment(today).format('ddd, MMMM DD HH:mm');
-    console.log(result);
+    obj.date = result;
+    return result;
 };
