@@ -10,6 +10,8 @@ import { getTime } from './models/Time';
 
 async function init() {
     const user = {};
+
+    startSpinner();
     
     if ('geolocation' in navigator) {
         const pos = await new Promise((resolve, reject) => {
@@ -26,6 +28,8 @@ async function init() {
         displayDate(user);
         displaySunAlt(user.sunAlt);
         elements.resultsCard.style.display = 'block';
+        
+        stopSpinner();
         flipCards();
         
     }
@@ -33,15 +37,24 @@ async function init() {
 
 // Set user's latitude and longitude
 function setCoords(obj, position) {
-    obj.lat = 57; //position.coords.latitude;
-    obj.long = 4; //position.coords.longitude;
+    obj.lat = position.coords.latitude;
+    obj.long = position.coords.longitude;
+}
+
+// Displays loading animation while fetching data
+function startSpinner() {
+    elements.sun.style.animation = 'rotation 15s linear infinite';
+}
+
+// Stops loading animation
+function stopSpinner() {
+    elements.sun.style.animation = '';
 }
 
 // Counts button clicks to determine refresh method
 let clicks = 0; 
 function countClicks() {
     clicks += 1
-    console.log(clicks);
     return clicks;
 }
 

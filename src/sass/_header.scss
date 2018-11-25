@@ -41,7 +41,7 @@
             background: $color-tertiary;
         }
 
-        &__text {
+        &__content {
             position: absolute;
             z-index: 1;
             transform: translate(-50%, 175%);
@@ -55,7 +55,6 @@
             background: $color-secondary;
             text-transform: uppercase;
             box-shadow: 0 0 15px $color-sunshine;
-            animation: rotation 15s linear infinite;
         }
 
         &__ray {
