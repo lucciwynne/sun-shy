@@ -6,7 +6,7 @@ import { getSunAlt } from './models/SunAlt';
 import { renderResultsCard, displaySunAlt, clearResults } from './views/sunAltView';
 import { displayDate } from './views/timeView';
 import { elements } from './views/base';
-import { getTime } from './models/Time';
+//import { getTime } from './models/Time';
 
 async function init() {
     const user = {};
@@ -43,12 +43,20 @@ function setCoords(obj, position) {
 
 // Displays loading animation while fetching data
 function startSpinner() {
-    elements.sun.style.animation = 'rotation 15s linear infinite';
+    elements.sunText.style.transform = 'translate(-50%, 190%)';
+    elements.sunText.style.fontSize = '1.4rem';
+    elements.sunText.innerHTML = 'Loading'; 
+
+    elements.sun.style.animation = 'rotation 10s linear infinite';
 }
 
 // Stops loading animation
 function stopSpinner() {
     elements.sun.style.animation = '';
+
+    elements.sunText.style.transform = 'translate(-50%, 175%)';
+    elements.sunText.style.fontSize = '';
+    elements.sunText.innerHTML = 'Tap';
 }
 
 // Counts button clicks to determine refresh method
@@ -69,5 +77,6 @@ function flipCards() {
     });
 }
 
+// Event listeners
 elements.btn.addEventListener('click', countClicks);
 elements.btn.addEventListener('click', init);

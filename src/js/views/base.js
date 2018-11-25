@@ -1,6 +1,7 @@
 export const elements = {
     btn: document.querySelector('button'),
     sun: document.querySelector('.sun-btn__sun'),
+    sunText: document.querySelector('.sun-btn__text'),
     text: document.querySelector('.test'),
     dataSection: document.querySelector('.data'),
     card: document.querySelector('.data__card'),
