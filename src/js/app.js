@@ -3,7 +3,7 @@ import '../sass/main.scss';
 
 // JS imports
 import { getSunAlt } from './models/SunAlt';
-import { renderResultsCard, displaySunAlt, clearResults } from './views/sunAltView';
+import { displaySunAlt } from './views/sunAltView';
 import { displayDate } from './views/timeView';
 import { displayFact } from './views/factsView';
 import { elements } from './views/base';
@@ -21,8 +21,8 @@ async function init() {
             });
         });
 
+        // Set position and altitude
         setCoords(user, pos); 
-        
         user.sunAlt = getSunAlt(user.lat, user.long);
 
         // Results card
@@ -30,7 +30,14 @@ async function init() {
         displaySunAlt(user.sunAlt);
 
         // Facts card
-        displayFact(user.sunAlt);
+        if (clicks > 1) {
+            setTimeout(function() {
+                displayFact(user.sunAlt);
+            }, 250);
+        } else {
+            displayFact(user.sunAlt);
+        }
+        
         
         stopSpinner();
         flipCards();
@@ -40,8 +47,8 @@ async function init() {
 
 // Set user's latitude and longitude
 function setCoords(obj, position) {
-    obj.lat = position.coords.latitude;
-    obj.long = position.coords.longitude;
+    obj.lat = -12;//position.coords.latitude; // -12 36
+    obj.long = 130;//position.coords.longitude; // 130 140
 }
 
 // Displays loading animation while fetching data
