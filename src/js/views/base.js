@@ -9,5 +9,7 @@ export const elements = {
     date: document.querySelector('#date'),
     results: document.querySelector('.data__card--result'),
     advice: document.querySelector('.data__card--advice'),
-    altitude: document.querySelector('.data__card--altitude')
+    altitude: document.querySelector('.data__card--altitude'),
+    factsCard: document.querySelector('#facts'),
+    fact: document.querySelector('.data__card--fact')
 }

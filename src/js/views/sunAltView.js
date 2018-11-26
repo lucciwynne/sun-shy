@@ -14,6 +14,9 @@ export const displaySunAlt = (altitude) => {
     }
 
     elements.altitude.innerHTML = `${altitude} degrees`;
+
+    // Make card visible
+    elements.resultsCard.style.display = 'block';
     
 };
 

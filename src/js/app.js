@@ -5,6 +5,7 @@ import '../sass/main.scss';
 import { getSunAlt } from './models/SunAlt';
 import { renderResultsCard, displaySunAlt, clearResults } from './views/sunAltView';
 import { displayDate } from './views/timeView';
+import { displayFact } from './views/factsView';
 import { elements } from './views/base';
 //import { getTime } from './models/Time';
 
@@ -24,10 +25,12 @@ async function init() {
         
         user.sunAlt = getSunAlt(user.lat, user.long);
 
-        
+        // Results card
         displayDate(user);
         displaySunAlt(user.sunAlt);
-        elements.resultsCard.style.display = 'block';
+
+        // Facts card
+        displayFact(user.sunAlt);
         
         stopSpinner();
         flipCards();
