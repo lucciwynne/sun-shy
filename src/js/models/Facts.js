@@ -1,10 +1,11 @@
 
 export const facts = {
     general: [
-        'Safe sun exposure is essential for optimal health, but incorrect exposure can raise your risk of skin cancer while not providing any health benefits. Sunburn should be avoided at all cost.',
-        'It\'s important to determine the ideal times of year for safe and effective sun exposure, and avoid exposure during times that UVB rays are not present.',
-        'The skin around your eyes and your face is typically much thinner than other areas on your body and is a relatively small surface area so will not contribute much to vitamin D production. It is strongly recommended to protect this fragile area of your body as is at a much higher risk for cosmetic photo damage and premature wrinkling.',
-        'Due to the physics and wavelength of UVB rays it will only penetrate the atmosphere when the sun is above an angle of about 50° from the horizon. When the sun is lower than 50°, the ozone layer reflects the UVB-rays but lets through the longer UVA-rays.'
+        'Safe sun exposure can be important for optimal health, but incorrect exposure can raise your risk of skin cancer while not providing any health benefits. Sunburn should be avoided at all cost.',
+        'It\'s important to determine the ideal times for safe and effective sun exposure, and avoid exposure during times that UVB rays are not present.',
+        'The skin around your eyes and your face is typically much thinner than other areas on your body and is a relatively small surface area so it will not contribute much to vitamin D production. It is strongly recommended to protect this fragile area of your body as it is at a much higher risk for cosmetic photo damage and premature wrinkling.',
+        'Due to the physics and wavelength of UVB rays it will only penetrate the atmosphere when the sun is above an angle of about 50° from the horizon. When the sun is lower than 50°, the ozone layer reflects the UVB rays but lets through the longer UVA rays.',
+        'Ain\'t no sunshine when she\'s gone.'
     ],
     above50: [
         'While sunlight is composed of about 1,500 wavelengths, UVB is the only wavelength that will produce vitamin D when hitting unexposed skin. ',
@@ -19,9 +20,9 @@ export const facts = {
     below50: [
         'UVAs increase your risk of skin cancer and causes photoaging of your skin.',
         'UVAs have a longer wavelength than UVB and can more easily penetrate the ozone layer and other obstacles (like clouds and pollution) on their way from the sun to the earth.',
-        'When you are indoors and expose yourself to sunlight filtered through window glass, you are increasing your risk of a variety of conditions, primarily skin cancer, because the UVAs are effectively destroying your vitamin D3 levels while you\'re getting none of the benefits from UVB, and this can significantly increase your risk of skin cancer.',
-        'While UVAs <i>will</i> give you a tan, unless the companion UVB rays are available you\'re likely doing more harm than good and should probably stay out of the sun to protect your skin.',
-        'During the times of the year when UVB rays are not present where you live, you can take vitamin D3 supplements to prevent deficiency.',
+        'When you are indoors and expose yourself to sunlight filtered through window glass, you are increasing your risk of a variety of conditions, because the UVAs are effectively destroying your vitamin D3 levels while you\'re getting none of the benefits from UVB, and this can significantly increase your risk of skin cancer.',
+        'While UVAs may give you a tan, unless the companion UVB rays are available you\'re likely doing more harm than good and should probably stay out of the sun to protect your skin.',
+        'During the times of the year when UVB rays are not present where you live, you should take vitamin D3 supplements to prevent deficiency.',
         'A tan results from injury to the skin\'s DNA; the skin darkens in an imperfect attempt to prevent further DNA damage. These imperfections, or mutations, can lead to skin cancer.'
     ]
 };

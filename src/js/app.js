@@ -11,6 +11,7 @@ import { elements } from './views/base';
 
 async function init() {
     const user = {};
+    const today = new Date();
 
     startSpinner();
     
@@ -23,7 +24,7 @@ async function init() {
 
         // Set position and altitude
         setCoords(user, pos); 
-        user.sunAlt = getSunAlt(user.lat, user.long);
+        user.sunAlt = getSunAlt(today, user.lat, user.long);
 
         // Results card
         displayDate(user);
@@ -47,8 +48,8 @@ async function init() {
 
 // Set user's latitude and longitude
 function setCoords(obj, position) {
-    obj.lat = -12;//position.coords.latitude; // -12 36
-    obj.long = 130;//position.coords.longitude; // 130 140
+    obj.lat = position.coords.latitude; // -12 36 
+    obj.long = position.coords.longitude; // 130 140
 }
 
 // Displays loading animation while fetching data
@@ -90,3 +91,38 @@ function flipCards() {
 // Event listeners
 elements.btn.addEventListener('click', countClicks);
 elements.btn.addEventListener('click', init);
+
+
+// Test
+const moment = require('moment');
+
+const today = new Date();
+const times = [];
+const tenBlocks = 144;
+
+let count = 0;
+for (let i = 0; i < tenBlocks; i++) {
+    count += 10;
+    times[i] = new moment(today).startOf('day').add(count, 'minutes');
+}
+
+console.log(times);
+
+/*
+for (let i = 0; i < times.length; i++) {
+    console.log(`${times[i]}: ${getSunAlt(times[i], -12, 130)}`);
+}
+*/
+
+const alts = [];
+for (let i = 0; i < times.length; i++) {
+    if (getSunAlt(times[i], -12, 130) >= 50) {
+        alts.push(times[i]);
+    }
+}
+
+for (let i = 0; i < alts.length; i++) {
+    console.log(`${alts[i]}: ${getSunAlt(alts[i], -12, 130)}`);
+}
+
+console.log(`Today the sun will be at or above 50 degrees from ${alts[0].format('HH:mm')} to ${alts[alts.length - 1].format('HH:mm')}.`)
