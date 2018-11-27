@@ -10,6 +10,8 @@ export const elements = {
     results: document.querySelector('.data__card--result'),
     advice: document.querySelector('.data__card--advice'),
     altitude: document.querySelector('.data__card--altitude'),
+    forecastCard: document.querySelector('#forecast'),
+    forecast: document.querySelector('.data__card--forecast-text'),
     factsCard: document.querySelector('#facts'),
     fact: document.querySelector('.data__card--fact')
 }

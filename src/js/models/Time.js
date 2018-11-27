@@ -1,4 +1,5 @@
 const moment = require('moment');
+import { getSunAlt } from './SunAlt';
 
 export const getTime = (obj) => {
     const today = new Date();
@@ -16,15 +17,26 @@ export const getTime = (obj) => {
 // If the altitude is 50 or above at that time, push to array
 // Return first item and last item in array to display time period
 
-/*
-const today = new Date();
-const start = moment(today).startOf('day'); // 00:00 today
-const end = moment(today).endOf('day'); // 23:59 today
-const times = [];
+export function getForecast(lat, long) {
+    const today = new Date();
+    const start = moment(today).startOf('day');
+    
+    const times = [start];
+    const arr = [];
+    
+    const tenBlocks = 144;
 
-while (start < end) {
-    start.add(10, 'minutes');
-    console.log(start);
-    times.push(start);
+    let count = 0;
+    for (let i = 1; i < tenBlocks; i++) {
+        count += 10;
+        times[i] = new moment(today).startOf('day').add(count, 'minutes');
+    }
+
+    for (let i = 0; i < times.length; i++) {
+        if (getSunAlt(times[i], lat, long) >= 50) {
+            arr.push(times[i]);
+        }
+    }
+
+    return arr;
 }
-*/

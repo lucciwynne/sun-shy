@@ -4,10 +4,9 @@ import '../sass/main.scss';
 // JS imports
 import { getSunAlt } from './models/SunAlt';
 import { displaySunAlt } from './views/sunAltView';
-import { displayDate } from './views/timeView';
+import { displayDate, displayForecast } from './views/timeView';
 import { displayFact } from './views/factsView';
 import { elements } from './views/base';
-//import { getTime } from './models/Time';
 
 async function init() {
     const user = {};
@@ -30,13 +29,22 @@ async function init() {
         displayDate(user);
         displaySunAlt(user.sunAlt);
 
+        // Forecast card
+        if (clicks > 1) {
+            setTimeout(function() {
+                displayForecast(user.lat, user.long);
+            }, 250);
+        } else {
+            displayForecast(user.lat, user.long);
+        }
+
         // Facts card
         if (clicks > 1) {
             setTimeout(function() {
                 displayFact(user.sunAlt);
-            }, 250);
+            }, 500);
         } else {
-            displayFact(user.sunAlt);
+            displayFact(user.sunAlt); 
         }
         
         
@@ -91,38 +99,3 @@ function flipCards() {
 // Event listeners
 elements.btn.addEventListener('click', countClicks);
 elements.btn.addEventListener('click', init);
-
-
-// Test
-const moment = require('moment');
-
-const today = new Date();
-const times = [];
-const tenBlocks = 144;
-
-let count = 0;
-for (let i = 0; i < tenBlocks; i++) {
-    count += 10;
-    times[i] = new moment(today).startOf('day').add(count, 'minutes');
-}
-
-console.log(times);
-
-/*
-for (let i = 0; i < times.length; i++) {
-    console.log(`${times[i]}: ${getSunAlt(times[i], -12, 130)}`);
-}
-*/
-
-const alts = [];
-for (let i = 0; i < times.length; i++) {
-    if (getSunAlt(times[i], -12, 130) >= 50) {
-        alts.push(times[i]);
-    }
-}
-
-for (let i = 0; i < alts.length; i++) {
-    console.log(`${alts[i]}: ${getSunAlt(alts[i], -12, 130)}`);
-}
-
-console.log(`Today the sun will be at or above 50 degrees from ${alts[0].format('HH:mm')} to ${alts[alts.length - 1].format('HH:mm')}.`)
