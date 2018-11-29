@@ -63,6 +63,7 @@ function setCoords(obj, position) {
 // Displays loading animation while fetching data
 function startSpinner() {
     elements.sunText.style.transform = 'translate(-50%, 190%)';
+    elements.sunText.style.MozTransform = 'translate(-50%, 195%)';
     elements.sunText.style.fontSize = '1.4rem';
     elements.sunText.innerHTML = 'Loading'; 
 
@@ -73,7 +74,8 @@ function startSpinner() {
 function stopSpinner() {
     elements.sun.style.animation = '';
 
-    elements.sunText.style.transform = 'translate(-50%, 175%)';
+    elements.sunText.style.transform = 'translate(-50%, 185%)';
+    elements.sunText.style.MozTransform = 'translate(-50%, 165%)';
     elements.sunText.style.fontSize = '';
     elements.sunText.innerHTML = 'Tap';
 }
@@ -85,7 +87,7 @@ function countClicks() {
     return clicks;
 }
 
-// Flip results cards to refresh on button click
+// Flip cards on refresh
 let rotation = 0;
 function flipCards() {
     rotation -= 720;
