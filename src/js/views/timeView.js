@@ -1,6 +1,9 @@
 import { getTime, getForecast } from '../models/Time';
 import { elements } from './base';
 
+// Test
+import { getSunAlt } from '../models/SunAlt';
+
 export const displayDate = (obj) => {
     elements.date.innerHTML = getTime(obj);
 };
@@ -22,4 +25,9 @@ export function displayForecast(lat, long) {
     }
 
     elements.forecastCard.style.display = 'block';
+
+    // Test
+    for (let i = 0; i < altitudes.length; i++) {
+        console.log(`${altitudes[i].format('HH:mm')}: ${getSunAlt(altitudes[i], lat, long)}`);
+    }
 }

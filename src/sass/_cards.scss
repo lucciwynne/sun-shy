@@ -34,6 +34,24 @@
             font-weight: 300;
             font-style: italic;
         }
+
+        &--source {
+            width: max-content;
+            //max-width: -moz-fit-content;
+            //max-width: -webkit-fit-content;
+            color: $color-primary;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 1.3rem;
+            margin: 1.5rem auto 0 auto;
+            display: block;
+            border-bottom: 1px solid transparent;
+            transition: all .2s;
+
+            &:hover {
+                border-bottom: 1px solid $color-primary;
+            }
+        }
     }
 
     #results {

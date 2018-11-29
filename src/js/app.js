@@ -28,7 +28,7 @@ async function init() {
         // Results card
         displayDate(user);
         displaySunAlt(user.sunAlt);
-
+ 
         // Forecast card
         if (clicks > 1) {
             setTimeout(function() {
