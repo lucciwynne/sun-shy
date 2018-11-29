@@ -18,7 +18,8 @@ async function init() {
         const pos = await new Promise((resolve, reject) => {
             navigator.geolocation.getCurrentPosition((position) => {
               resolve(position);
-            });
+            },
+            noPosition); // Error function
         });
 
         // Set position and altitude
@@ -53,6 +54,16 @@ async function init() {
         
     }
 };
+
+// Error handling when geolocation is rejected
+function noPosition() {
+    elements.resultsCard.innerHTML = `
+        <h4 class="heading-4" id="date">Oopsies!</h4>
+        <p class="data__card--result">Could not retrieve your position.<br><br> Please enable geolocation in your browser or on your mobile device so I can help you! :)</p>
+    `; 
+    elements.resultsCard.style.display = 'block';
+    stopSpinner();
+}
 
 // Set user's latitude and longitude
 function setCoords(obj, position) {
