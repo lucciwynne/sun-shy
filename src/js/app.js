@@ -27,6 +27,7 @@ async function init() {
         user.sunAlt = getSunAlt(today, user.lat, user.long);
 
         // Results card
+        elements.resultsCard.innerHTML = ''; // Clear card
         displayDate(user);
         displaySunAlt(user.sunAlt);
  
@@ -55,13 +56,15 @@ async function init() {
     }
 };
 
-// Error handling when geolocation is rejected
+// Error handling when geolocation is not enabled
 function noPosition() {
     elements.resultsCard.innerHTML = `
         <h4 class="heading-4" id="date">Oopsies!</h4>
-        <p class="data__card--result">Could not retrieve your position.<br><br> Please enable geolocation in your browser or on your mobile device so I can help you! :)</p>
+        <p class="data__card--result">Could not retrieve your position.<br><br> Please enable geolocation in your browser or on your mobile device and retry.</p>
     `; 
     elements.resultsCard.style.display = 'block';
+    elements.forecastCard.style.display = 'none';
+    elements.factsCard.style.display = 'none';
     stopSpinner();
 }
 
@@ -73,7 +76,7 @@ function setCoords(obj, position) {
 
 // Displays loading animation while fetching data
 function startSpinner() {
-    elements.sunText.style.transform = 'translate(-50%, 190%)';
+    elements.sunText.style.transform = 'translate(-50%, 210%)';
     elements.sunText.style.MozTransform = 'translate(-50%, 195%)';
     elements.sunText.style.fontSize = '1.4rem';
     elements.sunText.innerHTML = 'Loading'; 
@@ -85,9 +88,9 @@ function startSpinner() {
 function stopSpinner() {
     elements.sun.style.animation = '';
 
-    elements.sunText.style.transform = 'translate(-50%, 185%)';
+    elements.sunText.style.transform = 'translate(-50%, 170%)';
     elements.sunText.style.MozTransform = 'translate(-50%, 165%)';
-    elements.sunText.style.fontSize = '';
+    elements.sunText.style.fontSize = '1.6rem';
     elements.sunText.innerHTML = 'Tap';
 }
 
