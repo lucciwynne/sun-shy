@@ -27,7 +27,6 @@ async function init() {
         user.sunAlt = getSunAlt(today, user.lat, user.long);
 
         // Results card
-        elements.resultsCard.innerHTML = ''; // Clear card
         displayDate(user);
         displaySunAlt(user.sunAlt);
  
@@ -35,7 +34,7 @@ async function init() {
         if (clicks > 1) {
             setTimeout(function() {
                 displayForecast(user.lat, user.long);
-            }, 250);
+            }, 250); // Syncs with flip animation delay
         } else {
             displayForecast(user.lat, user.long);
         }
@@ -44,7 +43,7 @@ async function init() {
         if (clicks > 1) {
             setTimeout(function() {
                 displayFact(user.sunAlt);
-            }, 500);
+            }, 500); // Syncs with flip animation delay
         } else {
             displayFact(user.sunAlt); 
         }
