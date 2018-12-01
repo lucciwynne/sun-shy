@@ -3,7 +3,7 @@ import '../sass/main.scss';
 
 // JS imports
 import { getSunAlt } from './models/SunAlt';
-import { renderResultsCard } from './views/sunAltView';
+import { renderResultsCard, displayResultsCard } from './views/sunAltView';
 import { displayForecast } from './views/timeView';
 import { displayFact } from './views/factsView';
 import { elements } from './views/base';
@@ -57,21 +57,20 @@ async function init() {
 function noPosition() {
     elements.resultsCard.innerHTML = `
         <h4 class="heading-4" id="date">Oopsies!</h4>
-        <p class="data__card--result">
-            <span class="data__card--altitude"></span>
-        </p>
         <p class="data__card--advice">Could not retrieve your position.<br><br> Please enable geolocation in your browser or on your mobile device and retry.</p>
     `; 
-    elements.resultsCard.style.display = 'block';
+    
+    displayResultsCard();
     elements.forecastCard.style.display = 'none';
     elements.factsCard.style.display = 'none';
+    
     stopSpinner();
 }
 
 // Set user's latitude and longitude
 function setCoords(obj, position) {
-    obj.lat = position.coords.latitude; // -12 36 
-    obj.long = position.coords.longitude; // 130 140
+    obj.lat = position.coords.latitude; // Darwin: -12 Tokyo: 36 
+    obj.long = position.coords.longitude; // Darwin: 130 Tokyo: 140
 }
 
 // Displays loading animation while fetching data

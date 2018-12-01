@@ -1,16 +1,13 @@
-import { getTime, getForecast } from '../models/Time';
+import { getForecast } from '../models/Time';
 import { elements } from './base';
 
 // Test
 import { getSunAlt } from '../models/SunAlt';
 
-export const displayDate = (obj) => {
-    elements.date.innerHTML = getTime(obj);
-};
-
 export function displayForecast(lat, long) {
-    const altitudes = getForecast(lat, long);
+    const altitudes = getForecast(lat, long); // Set array of times
 
+    // Return first item and last item in array to display time period
     if (altitudes.length > 0) {
         const start = altitudes[0].format('HH:mm');
         const end = altitudes[altitudes.length - 1].format('HH:mm');
@@ -24,6 +21,7 @@ export function displayForecast(lat, long) {
         `;
     }
 
+    // Make card visible
     elements.forecastCard.style.display = 'block';
 
     // Test

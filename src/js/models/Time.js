@@ -1,6 +1,8 @@
 const moment = require('moment');
+
 import { getSunAlt } from './SunAlt';
 
+// Format and set current date and time
 export const getTime = (obj) => {
     const today = new Date();
     const result = moment(today).format('ddd, MMMM DD HH:mm');
@@ -9,34 +11,28 @@ export const getTime = (obj) => {
 };
 
 // Find out whether the sun will rise past 50 degrees and at what times
-
-// Start date at midnight/ 00:00 on the current day
-// Increment time by 10 minutes and add new time to array
-
-
-// If the altitude is 50 or above at that time, push to array
-// Return first item and last item in array to display time period
-
 export function getForecast(lat, long) {
     const today = new Date();
-    const start = moment(today).startOf('day');
+    const start = moment(today).startOf('day'); // Start date at 00:00
     
     const times = [start];
     const arr = [];
     
-    const tenBlocks = 144;
+    const tenBlocks = 144; // 144 sets of 10 minutes in a day
 
+    // Increment time by 10 minutes and add new time to array
     let count = 0;
     for (let i = 1; i < tenBlocks; i++) {
-        count += 10;
+        count += 10; // Ten minutes later
         times[i] = new moment(today).startOf('day').add(count, 'minutes');
     }
 
+    // If the altitude is 50 or above at that time, push to new array
     for (let i = 0; i < times.length; i++) {
         if (getSunAlt(times[i], lat, long) >= 50) {
             arr.push(times[i]);
         }
     }
 
-    return arr;
+    return arr; // Array of times when the sun will be 50 degrees or higher
 }

@@ -1,6 +1,7 @@
 import { facts } from '../models/Facts';
 import { elements } from './base';
 
+// Generate random fun fact based on sun altitude results
 export function displayFact(altitude) {
     let index;
     
@@ -15,5 +16,6 @@ export function displayFact(altitude) {
         elements.fact.innerHTML = facts.below50[index];
     }
 
+    // Make card visible
     elements.factsCard.style.display = 'block';
 }

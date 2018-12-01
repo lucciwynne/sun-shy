@@ -1,6 +1,6 @@
 
 export const facts = {
-    general: [
+    general: [ // If the sun is below the horizon
         `Safe sun exposure can be important for optimal health, but incorrect exposure can raise your risk of skin cancer while not providing any health benefits. Sunburn should be avoided at all cost.
         <a href="https://articles.mercola.com/sites/articles/archive/2012/03/26/maximizing-vitamin-d-exposure.aspx" class="data__card--source" target="_blank">Source</a>`,
         `It\'s important to determine the ideal times for safe and effective sun exposure, and avoid exposure during times that UVB rays are not present.
@@ -12,7 +12,7 @@ export const facts = {
         `Ain\'t no sunshine when she's gone.
         <a href="https://www.youtube.com/watch?v=tIdIqbv7SPo" class="data__card--source" target="_blank">Source</a>`
     ],
-    above50: [
+    above50: [ // If the sun is 50 degrees or higher above the horizon
         `While sunlight is composed of about 1,500 wavelengths, UVB is the only wavelength that will produce vitamin D when hitting unexposed skin.
         <a href="https://articles.mercola.com/sites/articles/archive/2012/03/26/maximizing-vitamin-d-exposure.aspx" class="data__card--source" target="_blank">Source</a>`,
         `A growing body of evidence shows that vitamin D plays a crucial role in disease prevention and maintaining optimal health. There are about 30,000 genes in your body, and vitamin D affects nearly 3,000 of them, as well as vitamin D receptors located throughout your body.
@@ -30,7 +30,7 @@ export const facts = {
         `Unfortunately, the very same UVB wavelengths (290-320 nanometers, or nm) that make the body synthesize vitamin D are also the wavelengths that produce sunburn and genetic mutations that can lead to skin cancer.
         <a href="https://www.skincancer.org/healthy-lifestyle/vitamin-d/damage" class="data__card--source" target="_blank">Source</a>` 
     ],
-    below50: [
+    below50: [ // If the sun is below 50 degrees
         `UVAs increase your risk of skin cancer and cause photoaging of your skin.
         <a href="https://www.skincancer.org/healthy-lifestyle/vitamin-d/damage" class="data__card--source" target="_blank">Source</a>`,
         `UVAs have a longer wavelength than UVB and can more easily penetrate the ozone layer and other obstacles (like clouds and pollution) on their way from the sun to the earth.

@@ -1,3 +1,4 @@
+// DOM elements
 export const elements = {
     btn: document.querySelector('button'),
     sun: document.querySelector('.sun-btn__sun'),
