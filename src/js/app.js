@@ -3,8 +3,8 @@ import '../sass/main.scss';
 
 // JS imports
 import { getSunAlt } from './models/SunAlt';
-import { displaySunAlt } from './views/sunAltView';
-import { displayDate, displayForecast } from './views/timeView';
+import { renderResultsCard } from './views/sunAltView';
+import { displayForecast } from './views/timeView';
 import { displayFact } from './views/factsView';
 import { elements } from './views/base';
 
@@ -27,8 +27,7 @@ async function init() {
         user.sunAlt = getSunAlt(today, user.lat, user.long);
 
         // Results card
-        displaySunAlt(user.sunAlt);
-        displayDate(user);
+        renderResultsCard(user);
  
         // Forecast card
         if (clicks > 1) {
