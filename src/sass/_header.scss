@@ -43,11 +43,16 @@
 
         &__text {
             position: absolute;
+            margin: 0 auto;
+            width: 8rem;
+            height: 8rem;
             z-index: 1;
-            transform: translate(-50%, 170%); //translate(-50%, 190%)
-            -moz-transform: translate(-50%, 165%);
             font-weight: bold;
             //font-size: 1.4rem;
+
+            display: grid;
+            justify-items: center;
+            align-items: center;
         }
 
         &__sun {

@@ -1,7 +1,7 @@
 import { elements } from './base';
 
 export const displaySunAlt = (altitude) => {
-
+    
     if (altitude < 0) {
         elements.results.innerHTML = `
             The sun is

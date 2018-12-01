@@ -23,12 +23,12 @@ async function init() {
         });
 
         // Set position and altitude
-        setCoords(user, pos); 
+        setCoords(user, pos);
         user.sunAlt = getSunAlt(today, user.lat, user.long);
 
         // Results card
-        displayDate(user);
         displaySunAlt(user.sunAlt);
+        displayDate(user);
  
         // Forecast card
         if (clicks > 1) {
@@ -48,7 +48,6 @@ async function init() {
             displayFact(user.sunAlt); 
         }
         
-        
         stopSpinner();
         flipCards();
         
@@ -59,7 +58,10 @@ async function init() {
 function noPosition() {
     elements.resultsCard.innerHTML = `
         <h4 class="heading-4" id="date">Oopsies!</h4>
-        <p class="data__card--result">Could not retrieve your position.<br><br> Please enable geolocation in your browser or on your mobile device and retry.</p>
+        <p class="data__card--result">
+            <span class="data__card--altitude"></span>
+        </p>
+        <p class="data__card--advice">Could not retrieve your position.<br><br> Please enable geolocation in your browser or on your mobile device and retry.</p>
     `; 
     elements.resultsCard.style.display = 'block';
     elements.forecastCard.style.display = 'none';
@@ -75,10 +77,8 @@ function setCoords(obj, position) {
 
 // Displays loading animation while fetching data
 function startSpinner() {
-    elements.sunText.style.transform = 'translate(-50%, 210%)';
-    elements.sunText.style.MozTransform = 'translate(-50%, 195%)';
     elements.sunText.style.fontSize = '1.4rem';
-    elements.sunText.innerHTML = 'Loading'; 
+    elements.sunText.innerHTML = '<p>Loading</p>'; 
 
     elements.sun.style.animation = 'rotation 10s linear infinite';
 }
@@ -86,11 +86,9 @@ function startSpinner() {
 // Stops loading animation
 function stopSpinner() {
     elements.sun.style.animation = '';
-
-    elements.sunText.style.transform = 'translate(-50%, 170%)';
-    elements.sunText.style.MozTransform = 'translate(-50%, 165%)';
+    
     elements.sunText.style.fontSize = '1.6rem';
-    elements.sunText.innerHTML = 'Tap';
+    elements.sunText.innerHTML = '<p>Tap</p>';
 }
 
 // Counts button clicks to determine refresh method
