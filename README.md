@@ -8,8 +8,6 @@ A vanilla JS app that helps you protect your skin from the sun's rays. Powered b
 # To Use
 Enable geolocation settings on your browser or device to allow the app to find the sun's current altitude at your position. Then click on the sun button (if you have not enabled geolocation it will ask).
 
-The first card will display the current date and time along with the sun's altitude and advice based on the results.
-
-The second card displays a forecast for the day. If the sun will reach 50 degrees above the horizon, it will tell you the time period.
-
-The third card generates helpful/fun facts based on the results from the first card.
+* The first card will display the current date and time along with the sun's altitude and advice based on the results.
+* The second card displays a forecast for the day. If the sun will reach 50 degrees above the horizon, it will tell you the time period.
+* The third card generates helpful/fun facts based on the results from the first card.
