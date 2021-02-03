@@ -1,4 +1,4 @@
-# Sun Shy
+# SunShy
 A vanilla JS app that helps you protect your skin from the sun's rays. Powered by [SunCalc](https://github.com/mourner/suncalc) and [Moment.js](https://momentjs.com/).
 
 [Try it out here](https://luccipaula.github.io/solario/)
