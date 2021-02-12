@@ -1,7 +1,7 @@
 {
-  "name": "solario-app",
+  "name": "sun-shy-app",
   "version": "1.0.0",
-  "description": "Solario suncare app",
+  "description": "SunShy suncare app",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
@@ -12,25 +12,25 @@
   "author": "Lucci",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
-    "autoprefixer": "^9.3.1",
-    "babel-loader": "^8.0.4",
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.2.2",
     "css-loader": "^1.0.1",
-    "cssnano": "^4.1.7",
-    "gh-pages": "^2.0.1",
+    "cssnano": "^4.1.10",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.4.4",
-    "node-sass": "^4.10.0",
+    "mini-css-extract-plugin": "^0.4.5",
+    "node-sass": "^4.14.1",
     "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.1.0",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "sass-loader": "^7.3.1",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
-    "moment": "^2.22.2",
+    "@babel/polyfill": "^7.12.1",
+    "moment": "^2.29.1",
     "suncalc": "^1.8.0"
   },
   "browserslist": [
